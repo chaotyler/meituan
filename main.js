@@ -7,8 +7,8 @@ function out() {
     var result = [];
     var x, y;
     //获取输入字符串并转换成二维数组
-    for (var i = 0; i < arr.length; i++) {
-        arr[i] = arr[i].split(",");
+    for (var k = 0; k < arr.length; k++) {
+        arr[k] = arr[k].split(",");
     }
     //横向从右向左
     for (var i = length - 1; i >= 0; i--) {
