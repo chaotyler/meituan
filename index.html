@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>美团面试题</title>
+    <style>
+        #input{
+            width: 400px;
+            height: 50px;
+        }
+        #result{
+            width: 400px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <h3>请输入二维数组，以示例格式以逗号和分号分割：</h3>
+    <textarea id="input" placeholder="1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6">1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6;1,2,3,4,5,6</textarea>
+    <br/>
+    <input type="button" value="重排"/>
+    <h3>结果</h3>
+    <textarea id="result"></textarea>
+    <h3>JS代码</h3>
+    <pre>
+        var arr = document.getElementById("input").value.split(";");
+        var resultArea = document.getElementById("result");
+        var length = arr.length;
+        var result = [];
+        var x, y;
+        //获取输入字符串并转换成二维数组
+        for(var i = 0; i < arr.length; i ++){
+            arr[i] = arr[i].split(",");
+        }
+        //横向从右向左
+        for(var i = length - 1; i >= 0; i --){
+            x = 0;
+            y = i;
+            while(y < length){
+                result.push(arr[x][y]);
+                x ++;
+                y ++;
+            }
+        }
+        //竖向从上向下
+        for(var j = 1; j < length; j ++){
+            x = j;
+            y = 0;
+            while(x < length){
+                result.push(arr[x][y]);
+                x ++;
+                y ++;
+            }
+        }
+        resultArea.innerHTML = result.join(",");
+    </pre>
+    <script src="main.js"></script>
+</body>
+</html>
